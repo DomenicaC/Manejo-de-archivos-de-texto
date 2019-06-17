@@ -11,8 +11,6 @@ package ec.edu.ups.controlador;
  */
 public class ControladorConteoPalabras {
     
-    public void escribir(){
-        
-    }
+   
     
 }

@@ -23,7 +23,7 @@ import manejoarchivosdetexto.ConteoPalabras;
  */
 public class ControladorEscribirLeer {
 
-    private String oracion = "";
+    private String oracion;
     private List<ConteoPalabras> lista;
 
     public ControladorEscribirLeer() {
@@ -34,6 +34,8 @@ public class ControladorEscribirLeer {
 
     public void BOW(String ruta) throws IOException {
 
+        oracion = "";
+        
         try {
 
             FileReader archivo = new FileReader(ruta);
@@ -98,9 +100,11 @@ public class ControladorEscribirLeer {
     public void escribir() throws IOException {
 
         Collections.sort(lista, new Comparator<ConteoPalabras>() {
+
             public int compare(ConteoPalabras contPal1, ConteoPalabras contPal2) {
                 return contPal1.getNombre().compareTo(contPal2.getNombre());
             }
+
         });
 
         try {
