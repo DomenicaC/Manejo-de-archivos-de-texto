@@ -5,12 +5,46 @@
  */
 package ec.edu.ups.controlador;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author Domenica Cañizares
  */
 public class ControladorEscribir {
-    
-    
-    
+
+    private String ruta;
+    private FileWriter escribirArc;
+    private BufferedWriter escribir;
+
+    public ControladorEscribir() {
+    }
+
+    public ControladorEscribir(String ruta) {
+
+        this.ruta = ruta;
+
+    }
+
+    public String getRuta() {
+
+        return ruta;
+
+    }
+
+    public void setRuta(String ruta) {
+
+        this.ruta = ruta;
+        /*try {
+
+            
+            
+        } catch (IOException error) {
+            System.out.println("error");
+        }*/
+
+    }
+
 }
