@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import manejoarchivosdetexto.ConteoPalabras;
+import ec.edu.ups.main.ConteoPalabras;
 
 /**
  *
@@ -32,10 +32,10 @@ public class ControladorEscribirLeer {
 
     }
 
-    public void BOW(String ruta) throws IOException {
+    public void bolsaPalabras(String ruta) throws IOException {
 
         oracion = "";
-        
+
         try {
 
             FileReader archivo = new FileReader(ruta);
@@ -44,9 +44,11 @@ public class ControladorEscribirLeer {
             while (oracion != null) {
 
                 oracion = leer.readLine();
+
                 if (oracion != null) {
 
                     leerOracion();
+                    //System.out.println(oracion);
 
                 }
             }
@@ -54,10 +56,12 @@ public class ControladorEscribirLeer {
         } catch (FileNotFoundException errorArc) {
 
             System.out.println("Archivo no existe");
+            System.out.println(errorArc.toString());
 
         } catch (IOException errorLeer) {
 
             System.out.println("No se pudo escribir");
+            System.out.println(errorLeer.toString());
 
         }
 
@@ -72,6 +76,7 @@ public class ControladorEscribirLeer {
 
                 palabra2.setRepetir(palabra2.getRepetir() + 1);
                 cont++;
+
                 break;
 
             }
@@ -89,10 +94,13 @@ public class ControladorEscribirLeer {
 
     public void leerOracion() {
 
+        
         String palabra[] = oracion.split(" ");
         for (int i = 0; i < palabra.length; i++) {
 
             contarPalabra(palabra[i].toLowerCase());
+            System.out.println(palabra[i]);
+            
         }
 
     }
@@ -113,10 +121,12 @@ public class ControladorEscribirLeer {
             FileWriter archivo = new FileWriter(ruta, false);
             BufferedWriter escribir = new BufferedWriter(archivo);
 
+            System.out.println("\nRESPUESTA");
             for (ConteoPalabras contPal : lista) {
 
                 escribir.append(contPal.getNombre() + " " + contPal.getRepetir());
                 escribir.newLine();
+                System.out.println(contPal.getNombre() + " " + contPal.getRepetir());
 
             }
 

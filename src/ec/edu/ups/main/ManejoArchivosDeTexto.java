@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package manejoarchivosdetexto;
+package ec.edu.ups.main;
 
 import ec.edu.ups.controlador.ControladorEscribirLeer;
 import java.io.File;
@@ -19,6 +19,8 @@ public class ManejoArchivosDeTexto {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+        System.out.println("Palabras de los archivos");
+        //String resul ="";
         
         ControladorEscribirLeer control = new ControladorEscribirLeer();
         String ruta = "C:\\Users\\Domenica Cañizares\\Desktop\\netbeans\\ManejoArchivosDeTexto\\src\\ec\\edu\\ups\\archivos";
@@ -29,7 +31,9 @@ public class ManejoArchivosDeTexto {
             
             if (!archivos.getName().equals("ConteoPalabras.txt")) {
                 
-                control.BOW(ruta + "\\" + archivos.getName());
+                control.bolsaPalabras(ruta + "\\" + archivos.getName());
+                
+                //resul = control.leerOracion();
                 
             }
         }

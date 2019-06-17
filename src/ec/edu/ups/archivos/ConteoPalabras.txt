@@ -1,0 +1,5 @@
+adios 1
+chao 1
+como 2
+estas 2
+hola 2
