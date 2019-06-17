@@ -15,7 +15,10 @@ public class ManejoArchivosDeTexto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Controlador control = new Controlador();
         
+        control.escribir();
+        control.leer();
     }
     
 }

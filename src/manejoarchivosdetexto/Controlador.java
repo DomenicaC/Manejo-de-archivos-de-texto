@@ -11,4 +11,11 @@ package manejoarchivosdetexto;
  */
 public class Controlador {
     
+    public void escribir(){
+        
+    }
+    
+    public void leer(){
+        
+    }
 }
