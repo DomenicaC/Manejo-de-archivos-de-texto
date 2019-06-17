@@ -5,7 +5,7 @@
  */
 package manejoarchivosdetexto;
 
-import ec.edu.ups.controlador.ControladorLeer;
+import ec.edu.ups.controlador.ControladorConteoPalabras;
 
 /**
  *
@@ -17,7 +17,7 @@ public class ManejoArchivosDeTexto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ControladorLeer control = new ControladorLeer();
+        ControladorConteoPalabras control = new ControladorConteoPalabras();
         
         control.escribir();
         //control.leer();

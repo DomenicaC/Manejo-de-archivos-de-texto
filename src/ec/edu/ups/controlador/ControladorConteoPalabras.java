@@ -9,7 +9,7 @@ package ec.edu.ups.controlador;
  *
  * @author Domenica Cañizares
  */
-public class ControladorLeer {
+public class ControladorConteoPalabras {
     
     public void escribir(){
         
