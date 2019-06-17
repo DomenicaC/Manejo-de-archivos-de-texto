@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package manejoarchivosdetexto;
+package ec.edu.ups.controlador;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class Controlador {
+public class ControladorLeer {
     
     public void escribir(){
         
     }
     
-    public void leer(){
-        
-    }
 }

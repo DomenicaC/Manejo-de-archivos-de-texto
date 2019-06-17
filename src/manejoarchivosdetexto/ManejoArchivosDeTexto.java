@@ -5,6 +5,8 @@
  */
 package manejoarchivosdetexto;
 
+import ec.edu.ups.controlador.ControladorLeer;
+
 /**
  *
  * @author Domenica Cañizares
@@ -15,10 +17,10 @@ public class ManejoArchivosDeTexto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Controlador control = new Controlador();
+        ControladorLeer control = new ControladorLeer();
         
         control.escribir();
-        control.leer();
+        //control.leer();
     }
     
 }
