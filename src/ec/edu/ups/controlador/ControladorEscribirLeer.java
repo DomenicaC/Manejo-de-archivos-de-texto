@@ -12,6 +12,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import manejoarchivosdetexto.ConteoPalabras;
 
@@ -59,15 +61,28 @@ public class ControladorEscribirLeer {
 
     }
 
-    public void contarPalabra() {
+    public void contarPalabra(String palabra) {
 
         int cont = 0;
-        for (ConteoPalabras palabra : lista) {
+        for (ConteoPalabras palabra2 : lista) {
 
-          //  if(palabra.get)
-            
+            if (palabra2.getNombre().equals(palabra)) {
+
+                palabra2.setRepetir(palabra2.getRepetir() + 1);
+                cont++;
+                break;
+
+            }
         }
 
+        if (cont == 0) {
+
+            ConteoPalabras conPal = new ConteoPalabras();
+            conPal.setNombre(palabra);
+            conPal.setRepetir(1);
+            lista.add(conPal);
+
+        }
     }
 
     public void leerOracion() {
@@ -75,10 +90,39 @@ public class ControladorEscribirLeer {
         String palabra[] = oracion.split(" ");
         for (int i = 0; i < palabra.length; i++) {
 
-          //  contarPalabra(palabra[i].toLowerCase());
-
+            contarPalabra(palabra[i].toLowerCase());
         }
 
     }
 
+    public void escribir() throws IOException {
+
+        Collections.sort(lista, new Comparator<ConteoPalabras>() {
+            public int compare(ConteoPalabras contPal1, ConteoPalabras contPal2) {
+                return contPal1.getNombre().compareTo(contPal2.getNombre());
+            }
+        });
+
+        try {
+
+            String ruta = "ConteoPalabras.txt";
+            FileWriter archivo = new FileWriter(ruta, false);
+            BufferedWriter escribir = new BufferedWriter(archivo);
+
+            for (ConteoPalabras contPal : lista) {
+
+                escribir.append(contPal.getNombre() + " " + contPal.getRepetir());
+                escribir.newLine();
+
+            }
+
+            escribir.close();
+            archivo.close();
+
+        } catch (IndexOutOfBoundsException error) {
+
+            System.out.println("No se pudo escribir");
+
+        }
+    }
 }
